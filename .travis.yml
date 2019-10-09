@@ -13,6 +13,7 @@ after_success:
   - docker build -t silkin/multi-server ./server
   - docker build -t silkin/multi-nginx ./nginx
   - docker build -t silkin/multi-worker ./worker
+
   # Log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Take those images and push them to Docker Hub
@@ -21,7 +22,6 @@ after_success:
   - docker push silkin/multi-nginx
   - docker push silkin/multi-server
   - docker push silkin/multi-worker
-  - docker images
 
 deploy:
   provider: elasticbeanstalk
