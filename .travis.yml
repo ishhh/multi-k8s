@@ -16,11 +16,13 @@ after_success:
   # Log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Take those images and push them to Docker Hub
+
   - docker push silkin/multi-client
   - docker push silkin/multi-nginx
   - docker push silkin/multi-server
   - docker push silkin/multi-worker
-  
+  - docker images
+
 
 
 
